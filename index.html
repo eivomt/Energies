@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-csv@1.0.40/src/jquery.csv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.min.js" integrity="sha512-265OeMthg1wxVfU0mpNMtNrz2E+OKxJ9CNbmv+oYCxNO93Lgmxq9pwqubnQqkSJgzvsqLju8Mr106tcMlwsZxg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <button id="stop">stop it</button>
+    <button id="sound">sound</button>
+    <button id="collapse">collapse</button>
+    <button id="reset">reset</button>
+    <div class="audioContainer"></div>
+    <div class="bar-chart">
+        <input type="range" name="E1" id="E1"></input>
+        <input type="range" name="E2" id="E2"></input>
+        <input type="range" name="E3" id="E3"></input>
+        <input type="range" name="E4" id="E4"></input>
+        <input type="range" name="E5" id="E5"></input>
+        <input type="range" name="E6" id="E6"></input>
+    </div>
+
+    <div class="measurements">
+        <div class="measurement" data-measurements="0"></div>
+        <div class="measurement" data-measurements="0"></div>
+        <div class="measurement" data-measurements="0"></div>
+        <div class="measurement" data-measurements="0"></div>
+        <div class="measurement" data-measurements="0"></div>
+        <div class="measurement" data-measurements="0"></div>    
+    </div>
+</body> 
+</html>
