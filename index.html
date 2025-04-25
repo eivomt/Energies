@@ -8,31 +8,82 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-csv@1.0.40/src/jquery.csv.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.min.js" integrity="sha512-265OeMthg1wxVfU0mpNMtNrz2E+OKxJ9CNbmv+oYCxNO93Lgmxq9pwqubnQqkSJgzvsqLju8Mr106tcMlwsZxg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="http://unpkg.com/tone"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-    <button id="stop">stop it</button>
-    <button id="sound">sound</button>
-    <button id="collapse">collapse</button>
-    <button id="reset">reset</button>
+    
     <div class="audioContainer"></div>
-    <div class="bar-chart">
-        <input type="range" name="E1" id="E1"></input>
-        <input type="range" name="E2" id="E2"></input>
-        <input type="range" name="E3" id="E3"></input>
-        <input type="range" name="E4" id="E4"></input>
-        <input type="range" name="E5" id="E5"></input>
-        <input type="range" name="E6" id="E6"></input>
+
+    <div class="outer-container">
+
+        <div class="inner-container">
+
+            <div class="bar-chart">
+                <input type="range" name="E1" id="E1"></input>
+                <input type="range" name="E2" id="E2"></input>
+                <input type="range" name="E3" id="E3"></input>
+                <input type="range" name="E4" id="E4"></input>
+                <input type="range" name="E5" id="E5"></input>
+                <input type="range" name="E6" id="E6"></input>
+            </div>
+
+            <div class="buttons">
+                <button id="collapse">
+                    <svg id="stop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/></svg>
+                    <svg id="play" style="display: none;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+                </button>
+
+                <button id="reset">    
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" ><path d="M125.7 160l50.3 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L48 224c-17.7 0-32-14.3-32-32L16 64c0-17.7 14.3-32 32-32s32 14.3 32 32l0 51.2L97.6 97.6c87.5-87.5 229.3-87.5 316.8 0s87.5 229.3 0 316.8s-229.3 87.5-316.8 0c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0c62.5 62.5 163.8 62.5 226.3 0s62.5-163.8 0-226.3s-163.8-62.5-226.3 0L125.7 160z"/></svg>
+                </button>
+            </div>
+        
+            <div class="measurements">
+                <div class="measurement-container">
+                    <div class="measurement" data-measurements="0"></div>
+                </div>
+                <div class="measurement-container">
+                    <div class="measurement" data-measurements="0"></div>
+                </div>
+                <div class="measurement-container">
+                    <div class="measurement" data-measurements="0"></div>
+                </div>
+                <div class="measurement-container">
+                    <div class="measurement" data-measurements="0"></div>
+                </div>
+                <div class="measurement-container">
+                    <div class="measurement" data-measurements="0"></div>
+                </div>
+                <div class="measurement-container">
+                    <div class="measurement" data-measurements="0"></div>    
+                </div>
+            </div>
+
+        </div>
+
+
     </div>
 
-    <div class="measurements">
-        <div class="measurement" data-measurements="0"></div>
-        <div class="measurement" data-measurements="0"></div>
-        <div class="measurement" data-measurements="0"></div>
-        <div class="measurement" data-measurements="0"></div>
-        <div class="measurement" data-measurements="0"></div>
-        <div class="measurement" data-measurements="0"></div>    
-    </div>
+    <!-- <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>x</mi>
+        <mo>=</mo>
+        <mfrac>
+          <mrow>
+            <mo>-</mo>
+            <mi>b</mi>
+            <mo>&#x00B1;</mo>
+            <msqrt>
+              <msup><mi>b</mi><mn>2</mn></msup>
+              <mo>-</mo>
+              <mn>4</mn><mi>a</mi><mi>c</mi>
+            </msqrt>
+          </mrow>
+          <mrow>
+            <mn>2</mn><mi>a</mi>
+          </mrow>
+        </mfrac>
+      </math> -->
 </body> 
 </html>

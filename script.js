@@ -15,6 +15,8 @@ let audioList = []
 
 let amplitudeScalar = 700
 
+let notesArray = ["C3", "F3", "G3", "A#3", "C4", "G4"]
+
 let t=0
 
 let probabilityArray = [20,2,3,4,5,6]
@@ -216,31 +218,42 @@ function draw() {
 
     recalculateProbabilities(sliderInputs)
     if(paused==false) {
-        translate(-512 + windowWidth/2, windowHeight/2)
-        drawingContext.setLineDash([2,4])
-        strokeWeight(1.5)
+        let bgColor = color('#F1F1F1')
+        background(bgColor)
+        translate(-512 + windowWidth/2, windowHeight/2 + 4*windowHeight/32)
+
+
+        drawingContext.setLineDash([1,4])
+        strokeWeight(2)
         stroke(255,255,255)
         for(let i = 0; i<EigValues.length; i++){
             line(0,-30*EigValues[i], 512*2,-30*EigValues[i])
         }
-        drawingContext.setLineDash([1])
-        stroke(222,35,12)
-        background(220,220,220,90)
-        noFill()
+
         
-        beginShape()
-        for(let i = 0; i< psiTotal.length; i++) {
-            vertex(i*2,-psiTotal[i])
-        }
-        endShape()
+
+        strokeWeight(2)
     
-        drawingContext.setLineDash([1,4])
-        stroke(12,55,232)
+        drawingContext.setLineDash([1])
+        stroke(32,115,232)
+        // stroke('#333')
         beginShape()
         for(let i = 0; i<potential.length; i++) {
             vertex(i*2, -potential[i])
         }
         endShape()
+
+        drawingContext.setLineDash([1])
+        stroke(252,65,32)
+        
+        noFill()
+        strokeWeight(3)
+        beginShape()
+        for(let i = 0; i< psiTotal.length; i++) {
+            vertex(i*2,-psiTotal[i])
+        }
+        endShape()
+       
 
         
 
@@ -266,7 +279,21 @@ function draw() {
                         iterator++
                     }
                     energy = iterator
-                    audioList[energy].play()
+                    // audioList[energy].play()
+
+                    const synth = new Tone.PolySynth().toDestination();
+                    const now = Tone.now();
+                    // trigger the attack immediately
+                    synth.triggerAttack(notesArray[0], now);
+                    synth.triggerAttack(notesArray[1], now + .1);
+                    synth.triggerAttack(notesArray[2], now + .11);
+                    synth.triggerAttack(notesArray[3], now + .12);
+                    synth.triggerAttack(notesArray[4], now + .13);
+                    // wait one second before triggering the release
+                    synth.triggerRelease(now + 0.15);
+
+                    // mer enn 6 overtoner
+
 
                     let measurements = document.querySelectorAll(".measurement")
 
@@ -310,15 +337,18 @@ setTimeout(() => {
         audioList.push(audio)
     }
 
-    let stopButton = document.getElementById("stop")
-    stopButton.addEventListener('click', function(e){
-        paused = !paused
-    })
+    // let stopButton = document.getElementById("stop")
+    // stopButton.addEventListener('click', function(e){
+    //     paused = !paused
+    // })
 
     let resetButton = document.getElementById("reset")
     resetButton.addEventListener('click', function(e){
         resetMeasurements(document.querySelectorAll(".measurement"))
     })
+
+    let stopSVG = document.getElementById("stop")
+    let playSVG = document.getElementById("play")
     
     let collapseButton = document.getElementById("collapse")
     collapseButton.addEventListener('click', function(e){
@@ -326,15 +356,20 @@ setTimeout(() => {
 
         if(collapsed) {
             collapseTo = true
+            stopSVG.style.display="none"
+            playSVG.style.display="block"
+        } else {
+            stopSVG.style.display="block"
+            playSVG.style.display="none"
         }
     })
 
     let audio = document.getElementById('audio')
 
-    let soundButton = document.getElementById('sound')
-    soundButton.addEventListener('click', function(e){
-        audio.play()
-    })
+    // let soundButton = document.getElementById('sound')
+    // soundButton.addEventListener('click', function(e){
+    //     audio.play()
+    // })
 
     
 
