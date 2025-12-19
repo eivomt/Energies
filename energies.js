@@ -360,6 +360,23 @@ function draw() {
 setTimeout(() => {
     let audioContainer = document.querySelector('.audioContainer')
 
+    let expanded = false
+    const expandTerms = document.getElementById("expandTerms")
+    const equation = document.getElementById('mf')
+    expandTerms.addEventListener('click', () => {
+        if(!expanded) {
+            equation.value = "\\Psi_{s}=\\alpha_0\\psi_0+\\alpha_1\\psi_1+\\alpha_2\\psi_2+\\alpha_3\\psi_3+\\alpha_4\\psi_4+\\alpha_5\\psi_5"
+            expandTerms.innerHTML = "Collect terms"
+            equation.classList.add("expanded")
+            expanded = !expanded
+        } else {
+            equation.value = "\\Psi_{s} = \\sum_{i=0}^{5} \\alpha_i \\psi_i"
+            expandTerms.innerHTML = "Expand terms"
+            equation.classList.remove("expanded")
+            expanded = !expanded
+        }
+    })
+
 
     for (let i = 0; i < 6; i++) {
         let audioSrc = './samples' + i.toString() + '.wav'
@@ -416,6 +433,14 @@ setTimeout(() => {
         collapsed = false
         stopSVG.style.display="block"
         playSVG.style.display="none"
+        if(expanded) {
+            equation.value = `\\Psi_{s}=\\sqrt{${amplitudeArray[0].toFixed(2)}}\\psi_0+\\sqrt{${amplitudeArray[1].toFixed(2)}}\\psi_1+\\sqrt{${amplitudeArray[2].toFixed(2)}}\\psi_2+\\sqrt{${amplitudeArray[3].toFixed(2)}}\\psi_3+\\sqrt{${amplitudeArray[4].toFixed(2)}}\\psi_4+\\sqrt{${amplitudeArray[5].toFixed(2)}}\\psi_5`
+        }
+    }))
+    rangeInputs.forEach((rangeInput) => rangeInput.addEventListener('input', function() {
+        if(expanded) {
+            equation.value = `\\Psi_{s}=\\sqrt{${amplitudeArray[0].toFixed(2)}}\\psi_0+\\sqrt{${amplitudeArray[1].toFixed(2)}}\\psi_1+\\sqrt{${amplitudeArray[2].toFixed(2)}}\\psi_2+\\sqrt{${amplitudeArray[3].toFixed(2)}}\\psi_3+\\sqrt{${amplitudeArray[4].toFixed(2)}}\\psi_4+\\sqrt{${amplitudeArray[5].toFixed(2)}}\\psi_5`
+        }
     }))
 }, 400)
 
