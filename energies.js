@@ -106,7 +106,9 @@ let setEquationValue = (expanded) => {
     terms.push(term)
     if(expanded) {
         for(let i=0; i<6; i++) {
-            terms.push(' + ')
+            if(i > 0) {
+                terms.push(' + ')
+            }
             // term = amplitudeArray[i]
             term = `\\sqrt{${amplitudeArray[i].toFixed(2)}}`
             terms.push(term)
@@ -118,7 +120,8 @@ let setEquationValue = (expanded) => {
     const equationContainer = document.querySelector('.equation-container')
     equationContainer.replaceChildren()
 
-    terms.forEach((value, i) => {
+    let i = 0
+    terms.forEach((value) => {
         //document.createElement("math-field")
         //legg til parametre
         //read-only
@@ -128,7 +131,10 @@ let setEquationValue = (expanded) => {
         const mathField = document.createElement("math-field")
         mathField.readOnly = true
         mathField.virtualKeyboardMode = "off"
-        mathField.id = `term${i}`
+        if(value != ' + ') {
+            mathField.id = `term${i}`
+            i++
+        }
         expanded ? mathField.classList.add("mf", "expanded") : mathField.classList.add("mf")
         mathField.value = value
         equationContainer.appendChild(mathField)
