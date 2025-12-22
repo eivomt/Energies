@@ -433,9 +433,6 @@ setTimeout(() => {
         collapsed = false
         stopSVG.style.display="block"
         playSVG.style.display="none"
-        if(expanded) {
-            equation.value = `\\Psi_{s}=\\sqrt{${amplitudeArray[0].toFixed(2)}}\\psi_0+\\sqrt{${amplitudeArray[1].toFixed(2)}}\\psi_1+\\sqrt{${amplitudeArray[2].toFixed(2)}}\\psi_2+\\sqrt{${amplitudeArray[3].toFixed(2)}}\\psi_3+\\sqrt{${amplitudeArray[4].toFixed(2)}}\\psi_4+\\sqrt{${amplitudeArray[5].toFixed(2)}}\\psi_5`
-        }
     }))
     rangeInputs.forEach((rangeInput) => rangeInput.addEventListener('input', function() {
         if(expanded) {
