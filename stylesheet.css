@@ -293,7 +293,7 @@ math-field::part(content) {
 .bar-label::part(content){ padding: 0; }
 
 
-#mf {
+.mf {
   color: #fff;
 }
 
@@ -311,4 +311,9 @@ math-field::part(content) {
 
 .expanded {
   font-size: 1.5rem;
+}
+
+.mf::part(content) .term1 {
+  color: #555 !important;
+  transition: color 180ms ease;
 }

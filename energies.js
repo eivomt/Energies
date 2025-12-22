@@ -98,6 +98,49 @@ let resetMeasurements = (measurements) => {
     }
 }
 
+let setEquationValue = (expanded) => {
+    //remove math-fields
+    //fjern knapp
+    const terms = []
+    let term = `\\Psi_{s} = `
+    terms.push(term)
+    if(expanded) {
+        for(let i=0; i<6; i++) {
+            terms.push(' + ')
+            // term = amplitudeArray[i]
+            term = `\\sqrt{${amplitudeArray[i].toFixed(2)}}`
+            terms.push(term)
+        }
+    } else {
+        terms.push(`\\sum_{i=0}^{5} \\alpha_i \\psi_i`)
+    }
+    // finn container
+    const equationContainer = document.querySelector('.equation-container')
+    equationContainer.replaceChildren()
+
+    terms.forEach((value, i) => {
+        //document.createElement("math-field")
+        //legg til parametre
+        //read-only
+        //virtual-keyboard-mode="off"
+        //menu-items = "[]"
+        //legg i container
+        const mathField = document.createElement("math-field")
+        mathField.readOnly = true
+        mathField.virtualKeyboardMode = "off"
+        mathField.id = `term${i}`
+        expanded ? mathField.classList.add("mf", "expanded") : mathField.classList.add("mf")
+        mathField.value = value
+        equationContainer.appendChild(mathField)
+        mathField.menuItems = []
+    })
+    //legg til knapp
+    let btn = document.createElement("button")
+    btn.id="expandTerms"
+    btn.innerHTML = expanded ? "Collect terms" : "Expand terms"
+    equationContainer.appendChild(btn)
+}
+
 
 
 function setup() {
@@ -436,7 +479,7 @@ setTimeout(() => {
     }))
     rangeInputs.forEach((rangeInput) => rangeInput.addEventListener('input', function() {
         if(expanded) {
-            equation.value = `\\Psi_{s}=\\sqrt{${amplitudeArray[0].toFixed(2)}}\\psi_0+\\sqrt{${amplitudeArray[1].toFixed(2)}}\\psi_1+\\sqrt{${amplitudeArray[2].toFixed(2)}}\\psi_2+\\sqrt{${amplitudeArray[3].toFixed(2)}}\\psi_3+\\sqrt{${amplitudeArray[4].toFixed(2)}}\\psi_4+\\sqrt{${amplitudeArray[5].toFixed(2)}}\\psi_5`
+            setEquationValue(expanded)
         }
     }))
 }, 400)
