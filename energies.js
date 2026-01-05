@@ -144,6 +144,10 @@ let setEquationValue = (expanded) => {
     let btn = document.createElement("button")
     btn.id="expandTerms"
     btn.innerHTML = expanded ? "Collect terms" : "Expand terms"
+    btn.addEventListener('click', () => {
+        setEquationValue(!expanded)
+        expanded = !expanded
+    })
     equationContainer.appendChild(btn)
 }
 
@@ -411,19 +415,20 @@ setTimeout(() => {
 
     let expanded = false
     const expandTerms = document.getElementById("expandTerms")
-    const equation = document.getElementById('mf')
+    let equation = document.getElementById('mf')
     expandTerms.addEventListener('click', () => {
+        console.log(expanded)
         if(!expanded) {
-            equation.value = "\\Psi_{s}=\\alpha_0\\psi_0+\\alpha_1\\psi_1+\\alpha_2\\psi_2+\\alpha_3\\psi_3+\\alpha_4\\psi_4+\\alpha_5\\psi_5"
+            // equation.value = "\\Psi_{s}=\\alpha_0\\psi_0+\\alpha_1\\psi_1+\\alpha_2\\psi_2+\\alpha_3\\psi_3+\\alpha_4\\psi_4+\\alpha_5\\psi_5"
             expandTerms.innerHTML = "Collect terms"
-            equation.classList.add("expanded")
-            expanded = !expanded
+            // equation.classList.add("expanded")
         } else {
-            equation.value = "\\Psi_{s} = \\sum_{i=0}^{5} \\alpha_i \\psi_i"
+            // equation.value = "\\Psi_{s} = \\sum_{i=0}^{5} \\alpha_i \\psi_i"
             expandTerms.innerHTML = "Expand terms"
-            equation.classList.remove("expanded")
-            expanded = !expanded
+            // equation.classList.remove("expanded")
         }
+        setEquationValue(!expanded)
+        expanded = !expanded
     })
 
 
