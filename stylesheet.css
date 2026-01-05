@@ -336,3 +336,76 @@ math-field::part(content) {
 h5 {
   color: #555;
 }
+
+.locator {
+  width: 1rem;
+  height: 1rem;
+  border-left: 2px solid #fff;
+  border-top: 2px solid #fff;
+  /* background-color: rgb(252,65,32); */
+  position: absolute;
+  z-index: 100;
+}
+
+#top {
+  top: calc(20 * calc(100vh / 32));
+  left: calc(50vw - 512px);
+}
+
+#bottom {
+  top: calc(-120px + calc(20 * calc(100vh / 32)));
+  left: calc(1024px + calc(50vw - 512px));
+}
+
+.area-locator {
+  position: absolute;
+  top: calc(-120px + calc(20 * calc(100vh / 32)));
+  right: calc(calc(50vw - 512px));
+  width: 1024px;
+  height: 120px;
+  z-index: 101;
+  background-color: rgba(80,80,80, .1);
+}
+
+.energy-level {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-weight: 300;
+  font-size: xx-small;
+  left: calc(-1rem + calc(calc(50vw - 512px)));
+  width: 3rem;
+  display: flex;
+  justify-content: left;
+  color: #555;
+  overflow: visible;
+  background: transparent;
+}
+
+.energy-level > * {
+  padding: none;
+  background-color: rgba(0,0,0,0);
+}
+
+#lE0 {
+  top: calc( -4px + calc(20 * calc(100vh / 32)));
+}
+
+#lE1 {
+  top: calc( -16px + calc(20 * calc(100vh / 32)));
+}
+
+#lE2 {
+  top: calc( -33px + calc(20 * calc(100vh / 32)));
+}
+
+#lE3 {
+  top: calc( -57px + calc(20 * calc(100vh / 32)));
+}
+
+#lE4 {
+  top: calc( -83px + calc(20 * calc(100vh / 32)));
+}
+
+#lE5 {
+  top: calc(-110px + calc(20 * calc(100vh / 32)));
+}
