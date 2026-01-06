@@ -372,22 +372,6 @@ function draw() {
                     gsap.to(`#${energyLevelID}`, {scale: 1, duration: .35, delay: 1.5})
                     gsap.to(`#${energyLevelID}`, {x: 0, duration: .25, delay: 1.75})
 
-                    // audioList[energy].play()
-
-                    // const synth = new Tone.PolySynth().toDestination();
-                    // const now = Tone.now();
-                    // // trigger the attack immediately
-                    // synth.triggerAttack(notesArray[0], now);
-                    // synth.triggerAttack(notesArray[1], now + .1);
-                    // synth.triggerAttack(notesArray[2], now + .11);
-                    // synth.triggerAttack(notesArray[3], now + .12);
-                    // synth.triggerAttack(notesArray[4], now + .13);
-                    // // wait one second before triggering the release
-                    // synth.triggerRelease(now + 0.25);
-
-                    // mer enn 6 overtoner
-
-
                     let measurements = document.querySelectorAll(".measurement")
 
                     measurements[energy].dataset.measurements = ((parseInt(measurements[energy].dataset.measurements)) + 1).toString()
@@ -447,11 +431,6 @@ setTimeout(() => {
         audioContainer.appendChild(audio)
         audioList.push(audio)
     }
-
-    // let stopButton = document.getElementById("stop")
-    // stopButton.addEventListener('click', function(e){
-    //     paused = !paused
-    // })
 
     let resetButton = document.getElementById("reset")
     resetButton.addEventListener('click', function(e){
