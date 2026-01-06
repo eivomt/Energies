@@ -17,7 +17,7 @@ body {
 
 .bar-chart {
     width: 30vw;
-    height: 15vh;
+    height: 20vh;
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -37,7 +37,7 @@ input[type=range] {
 
 .measurements {
     width: 30vw;
-    height: 15vh;
+    height: 20vh;
     display: flex;
     flex-direction: row;
     align-items: flex-end;
@@ -104,7 +104,7 @@ input[type=range] {
   width: 100vw;
   display: flex;
   position: absolute;
-  top: 72vh;
+  top: 70vh;
   flex-direction: column;
   align-items: end;
 }
@@ -225,9 +225,10 @@ canvas {
 .equation-container {
   width: 100vw;
   height: 30vh;
-  padding: calc(10vw + var(--edge));
-  padding-top: calc(calc(1.75 * calc(10vw + var(--edge))));
+  /* padding: calc(10vw + var(--edge)); */
+  /* padding-top: calc(calc(1.75 * calc(10vw + var(--edge)))); */
   padding-left: calc(10vw + var(--edge));
+  padding-top: 10vh;
   position: absolute;
   top: 0;
   left: 0;
@@ -261,7 +262,8 @@ math-field::part(content) {
   height: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 1.5rem;
+  /* margin-top: 1.5rem; */
+  align-items: center;
 }
 
 .measurement-container {
@@ -291,6 +293,9 @@ math-field::part(content) {
   padding: 0; 
 }
 
+.alpha-label {
+  padding-left: .5rem;
+}
 
 .mf {
   color: #555;

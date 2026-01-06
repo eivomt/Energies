@@ -23,6 +23,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.min.js" integrity="sha512-265OeMthg1wxVfU0mpNMtNrz2E+OKxJ9CNbmv+oYCxNO93Lgmxq9pwqubnQqkSJgzvsqLju8Mr106tcMlwsZxg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="http://unpkg.com/tone"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     
     <script defer src="https://unpkg.com/mathlive"></script>
@@ -58,7 +59,7 @@
 
     <div class="equation-container">
         <math-field id="mf" read-only virtual-keyboard-mode="off" menu-items="[]">\Psi_{s} = \sum_{i=0}^{5} \alpha_i \psi_i</math-field>
-        <button id="expandTerms">Expand terms</button>
+        <button id="expandTerms">Utvid uttrykk</button>
     </div>
 
     <div class="outer-container">
@@ -69,42 +70,42 @@
                     <div class="slider">
                         <input type="range" class="range-input" id="E1">
                     </div>
-                    <math-field class="bar-label" read-only virtual-keyboard-mode="off" menu-items="[]">\alpha_{0}</math-field>
+                    <math-field class="bar-label alpha-label" read-only virtual-keyboard-mode="off" menu-items="[]">|\alpha_{0}|^2</math-field>
                 </div>
 
                 <div class="bar">
                     <div class="slider">
                         <input type="range" class="range-input" id="E2">
                     </div>
-                    <math-field class="bar-label" read-only virtual-keyboard-mode="off" menu-items="[]">\alpha_{1}</math-field>
+                    <math-field class="bar-label alpha-label" read-only virtual-keyboard-mode="off" menu-items="[]">|\alpha_{1}|^2</math-field>
                 </div>
 
                 <div class="bar">
                     <div class="slider">
                         <input type="range" class="range-input" id="E3">
                     </div>
-                    <math-field class="bar-label" read-only virtual-keyboard-mode="off" menu-items="[]">\alpha_{2}</math-field>
+                    <math-field class="bar-label alpha-label" read-only virtual-keyboard-mode="off" menu-items="[]">|\alpha_{2}|^2</math-field>
                 </div>
 
                 <div class="bar">
                     <div class="slider">
                         <input type="range" class="range-input" id="E4">
                     </div>
-                    <math-field class="bar-label" read-only virtual-keyboard-mode="off" menu-items="[]">\alpha_{3}</math-field>
+                    <math-field class="bar-label alpha-label" read-only virtual-keyboard-mode="off" menu-items="[]">|\alpha_{3}|^2</math-field>
                 </div>
 
                 <div class="bar">
                     <div class="slider">
                         <input type="range" class="range-input" id="E5">
                     </div>
-                    <math-field class="bar-label" read-only virtual-keyboard-mode="off" menu-items="[]">\alpha_{4}</math-field>
+                    <math-field class="bar-label alpha-label" read-only virtual-keyboard-mode="off" menu-items="[]">|\alpha_{4}|^2</math-field>
                 </div>
 
                 <div class="bar">
                     <div class="slider">
                         <input type="range" class="range-input" id="E6">
                     </div>
-                    <math-field class="bar-label" read-only virtual-keyboard-mode="off" menu-items="[]">\alpha_{5}</math-field>
+                    <math-field class="bar-label alpha-label" read-only virtual-keyboard-mode="off" menu-items="[]">|\alpha_{5}|^2</math-field>
                 </div>
             </div>
 
@@ -186,8 +187,8 @@
     </div>
 
     <div class="title-container">
-        <h5 class="title">Probability distribution</h5>
-        <h5 class="title">Measurements</h5>
+        <h5 class="title">Sannsynlighetsfordeling</h5>
+        <h5 class="title">Målinger</h5>
     </div>
 
     

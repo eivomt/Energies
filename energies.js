@@ -110,7 +110,7 @@ let setEquationValue = (expanded) => {
                 terms.push(' + ')
             }
             // term = amplitudeArray[i]
-            term = `\\sqrt{${amplitudeArray[i].toFixed(2)}}`
+            term = `\\psi_{${i}}\\sqrt{${amplitudeArray[i].toFixed(2)}}`
             terms.push(term)
         }
     } else {
@@ -143,7 +143,7 @@ let setEquationValue = (expanded) => {
     //legg til knapp
     let btn = document.createElement("button")
     btn.id="expandTerms"
-    btn.innerHTML = expanded ? "Collect terms" : "Expand terms"
+    btn.innerHTML = expanded ? "Samle uttrykk" : "Utvid uttrykk"
     btn.addEventListener('click', () => {
         setEquationValue(!expanded)
         expanded = !expanded
@@ -365,6 +365,13 @@ function draw() {
                         iterator++
                     }
                     energy = iterator
+
+                    const energyLevelID = `lE${energy}`
+                    gsap.to(`#${energyLevelID}`, {x: -20, duration: .25})
+                    gsap.to(`#${energyLevelID}`, {scale: 2.5, duration: .25, delay: .25})
+                    gsap.to(`#${energyLevelID}`, {scale: 1, duration: .35, delay: 1.5})
+                    gsap.to(`#${energyLevelID}`, {x: 0, duration: .25, delay: 1.75})
+
                     // audioList[energy].play()
 
                     // const synth = new Tone.PolySynth().toDestination();
