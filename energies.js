@@ -110,7 +110,7 @@ let setEquationValue = (expanded) => {
                 terms.push(' + ')
             }
             // term = amplitudeArray[i]
-            term = `\\psi_{${i}}\\sqrt{${amplitudeArray[i].toFixed(2)}}`
+            term = `\\sqrt{${amplitudeArray[i].toFixed(2)}}\\psi_{${i}}`
             terms.push(term)
         }
     } else {
